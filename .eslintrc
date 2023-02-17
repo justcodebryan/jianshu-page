@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "jsx": true
+  },
+  "plugins": ["prettier", "unused-imports", "react", "@typescript-eslint"],
+  "rules": {
+    "eqeqeq": "error",
+    "prettier/prettier": "error",
+    "unused-imports/no-unused-imports": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreDeclarationSort": true
+      }
+    ]
+  },
+  "ignorePatterns": ["node_modules", "build", "dist", "public", "pnpm-lock.yaml"],
+  "settings": {
+    "react": {
+      "version": "18"
+    }
+  }
+}
