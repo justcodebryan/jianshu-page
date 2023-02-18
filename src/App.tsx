@@ -1,8 +1,13 @@
 import '@/styles/reset.css'
 import '@/styles/index.scss'
+import HomePage from './pages/HomePage'
 
 function App() {
-  return <div className="App"></div>
+  return (
+    <div className="App">
+      <HomePage></HomePage>
+    </div>
+  )
 }
 
 export default App

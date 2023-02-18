@@ -21,6 +21,8 @@ export default defineConfig({
     alias: {
       // source: https://stackoverflow.com/a/66515600
       '@': path.resolve(__dirname, './src'),
+      // source: https://stackoverflow.com/questions/67744210/how-to-use-asset-urls-in-style-binding-with-vite
+      '~@': path.resolve(__dirname, '/src'),
     },
   },
   css: {

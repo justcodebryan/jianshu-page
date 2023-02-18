@@ -68,5 +68,19 @@
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vitest": "^0.28.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{scss,css}": "pnpm lint:style",
+    "*.{js,jsx,ts,tsx}": "pnpm lint:fix",
+    "*.{js,jsx,ts,tsx,json}": "pnpm format"
+  },
+  "_moduleAliases": {
+    "@": "src"
   }
 }
