@@ -3,11 +3,12 @@
     position: fixed;
     z-index: 98;
     top: 216px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    user-select: none;
+    user-select: none;
+    user-select: none;
     user-select: none;
     left: calc((100vw - 1000px) / 2 - 78px);
+
     .like-btn {
       display: flex;
       align-items: center;
@@ -23,6 +24,7 @@
       margin-bottom: 16px;
       cursor: pointer;
       color: #969696;
+
       .like {
         position: relative;
         flex-direction: column;
@@ -30,6 +32,7 @@
         cursor: pointer;
         color: #969696;
       }
+
       .desc {
         margin-top: 4px;
         font-size: 14px;
