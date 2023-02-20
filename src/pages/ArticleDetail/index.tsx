@@ -1,4 +1,8 @@
-const ArticleDetail = () => {
+type ArticleDetailProps = {
+  id: string
+}
+
+const ArticleDetail = ({ id }: ArticleDetailProps) => {
   return <></>
 }
 

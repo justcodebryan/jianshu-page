@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import Button from '@/components/Button'
 import Logo from '@/components/Logo'
-import NavItem from '@/pages/HomePage/Nav/NavItem'
+import NavItem from '@/components/Layout/Nav/NavItem'
 
 import styles from './styles.module.scss'
 

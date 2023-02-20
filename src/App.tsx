@@ -1,11 +1,17 @@
 import '@/styles/reset.css'
 import '@/styles/index.scss'
-import HomePage from './pages/HomePage'
+import Layout from './components/Layout'
+import { useRoutes } from 'raviger'
+import routes from './routes'
+import { Suspense } from 'react'
 
 function App() {
+  const route = useRoutes(routes)
   return (
     <div className="App">
-      <HomePage></HomePage>
+      <Layout>
+        <Suspense fallback={<div>Loading...</div>}>{route}</Suspense>
+      </Layout>
     </div>
   )
 }
