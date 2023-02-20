@@ -1,35 +1,44 @@
 import List from '@/components/List'
+import Recommend from '@/components/Recommend'
 import useEffectOnce from '@/hooks/useEffectOnce'
+import { getArticleList } from '@/services/article'
+import { getUserList } from '@/services/user'
+import { Article } from '@/types/article'
+import { User } from '@/types/user'
+import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from '@/utils/constants'
+import { useState } from 'react'
 import styles from './styles.module.scss'
 
 const MainPage = () => {
+  const [itemList, setItemList] = useState<Article[]>([])
+  const [authorList, setAuthorList] = useState<User[]>([])
+
   useEffectOnce(() => {
-    const fetchArticleList = () => {
-      return void 0
+    const fetchArticleList = async (page: number = DEFAULT_PAGE, pageSize: number = DEFAULT_PAGE_SIZE) => {
+      const res = await getArticleList(page, pageSize)
+      if (!res) return
+      setItemList(res.items)
     }
+
+    const fetchUserList = async (page: number = DEFAULT_PAGE, pageSize: number = DEFAULT_PAGE_SIZE) => {
+      const res = await getUserList(page, pageSize)
+      if (!res) return
+      setAuthorList(res.items)
+    }
+
     fetchArticleList()
+    fetchUserList()
   })
 
   return (
     <div className={styles['main-page']}>
       <div className={styles['main-page-left']}>
         <div className={styles['banner']}></div>
-        <List
-          items={[
-            {
-              title: 'test111',
-              abstract:
-                '感觉宝爸今天打了一天的电话，都是在联系熟人帮他介绍工作，宝爸快四十了，他现在也变成了上有老下有小的人了，今年六月份又要开始交房租了，可是我们彼此...',
-            },
-            {
-              title: 'test222',
-              abstract:
-                '感觉宝爸今天打了一天的电话，都是在联系熟人帮他介绍工作，宝爸快四十了，他现在也变成了上有老下有小的人了，今年六月份又要开始交房租了，可是我们彼此...',
-            },
-          ]}
-        />
+        <List<Article> itemList={itemList} />
       </div>
-      <div className={styles['main-page-right']}>111</div>
+      <div className={styles['main-page-right']}>
+        <Recommend authorList={authorList} />
+      </div>
     </div>
   )
 }

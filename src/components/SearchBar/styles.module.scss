@@ -2,6 +2,7 @@
   &-wrapper {
     position: relative;
     float: left;
+
     .zoom {
       position: absolute;
       right: 5px;
@@ -10,6 +11,7 @@
       line-height: 30px;
       border-radius: 15px;
       text-align: center;
+
       &.focused {
         background: #777;
         color: #fff;
@@ -23,7 +25,7 @@
     top: 56px;
     width: 240px;
     padding: 0 20px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgb(0 0 0 / 20%);
     background: #fff;
 
     &-title {
@@ -38,6 +40,7 @@
       float: right;
       font-size: 13px;
       cursor: pointer;
+
       .spin {
         display: block;
         float: left;
