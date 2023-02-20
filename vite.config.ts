@@ -3,7 +3,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import postCssPxToRem from 'postcss-pxtorem'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,16 +24,16 @@ export default defineConfig({
       '~@': path.resolve(__dirname, '/src'),
     },
   },
-  css: {
-    postcss: {
-      plugins: [
-        postCssPxToRem({
-          rootValue: 14,
-          propList: ['*'],
-        }),
-      ],
-    },
-  },
+  // css: {
+  //   postcss: {
+  //     plugins: [
+  //       postCssPxToRem({
+  //         rootValue: 14,
+  //         propList: ['*'],
+  //       }),
+  //     ],
+  //   },
+  // },
   test: {
     globals: true,
     environment: 'jsdom',

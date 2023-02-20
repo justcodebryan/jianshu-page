@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import Button from '@/components/Button'
 import Logo from '@/components/Logo'
-import NavItem from '@/components/NavItem'
+import NavItem from '@/pages/HomePage/Nav/NavItem'
 
 import styles from './styles.module.scss'
 
@@ -14,18 +14,12 @@ const Nav = () => {
         </div>
 
         <div className={styles['navbar-section-mid']}>
-          <NavItem href="/" className="left active">
+          <NavItem href="/" active>
             首页
           </NavItem>
-          <NavItem href="/download" className="left">
-            下载App
-          </NavItem>
-          <NavItem href="/download" className="left">
-            会员
-          </NavItem>
-          <NavItem href="/download" className="left">
-            IT技术
-          </NavItem>
+          <NavItem href="/download">下载App</NavItem>
+          <NavItem href="/download">会员</NavItem>
+          <NavItem href="/download">IT技术</NavItem>
         </div>
 
         <div className={styles['navbar-section-right']}>

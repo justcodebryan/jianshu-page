@@ -10,5 +10,8 @@
   & > .link {
     text-decoration: none;
     color: #333;
+    &.active {
+      color: #ea6f5a;
+    }
   }
 }
