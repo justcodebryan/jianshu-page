@@ -11,7 +11,11 @@ type ListItemProps = DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElem
 
 const ListItem = ({ _id, title, abstract, onClick, ...rest }: ListItemProps) => {
   const onInternalClick: ListItemProps['onClick'] = (e) => {
-    if (_id) navigate(`/article/${_id}`)
+    if (_id) {
+      navigate(`/article/${_id}`)
+    } else {
+      console.error('[error]: unknown article id')
+    }
     onClick?.(e)
   }
 

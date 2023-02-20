@@ -1,0 +1,98 @@
+.article {
+  &-detail {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 66px);
+    padding-top: 10px;
+    font-size: 16px;
+  }
+
+  &-content {
+    flex: 2;
+    & > .title {
+      font-size: 30px;
+      font-weight: 700;
+      word-break: break-word;
+      margin-top: 32px;
+      color: #404040;
+      text-rendering: optimizelegibility;
+    }
+
+    & > .user-info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 32px;
+      font-size: 13px;
+      & > .avatar {
+        display: block;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        min-width: 50px;
+        min-height: 50px;
+        width: 50px;
+        height: 50px;
+      }
+
+      & > .info {
+        margin-left: 8px;
+        .base {
+          display: flex;
+          align-items: center;
+          margin-bottom: 6px;
+          & > .nickname {
+            font-size: 16px;
+            font-weight: 500;
+            margin-right: 8px;
+          }
+          & > .subscribe {
+            position: relative;
+            flex-shrink: 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+            font-size: 14px;
+            padding: 4px 12px;
+            color: #969696;
+            background-color: #fff;
+            border: 1px solid #999;
+            padding: 2px 9px;
+            &:hover {
+              color: #ec7259;
+              background-color: #fff;
+              border-color: #ec7259;
+            }
+          }
+        }
+
+        .more {
+          display: flex;
+          color: #969696;
+        }
+      }
+    }
+
+    & > .content {
+      font-weight: 400;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      word-break: break-word;
+      position: relative;
+    }
+  }
+
+  &-sider {
+    flex: 1;
+  }
+}
