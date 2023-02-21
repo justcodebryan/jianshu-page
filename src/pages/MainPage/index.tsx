@@ -1,3 +1,4 @@
+import Content from '@/components/Content'
 import List from '@/components/List'
 import Recommend from '@/components/Recommend'
 import useEffectOnce from '@/hooks/useEffectOnce'
@@ -31,15 +32,17 @@ const MainPage = () => {
   })
 
   return (
-    <div className={styles['main-page']}>
-      <div className={styles['main-page-left']}>
-        <div className={styles['banner']}></div>
-        <List<Article> itemList={itemList} />
+    <Content>
+      <div className={styles['main-page']}>
+        <div className={styles['main-page-left']}>
+          <div className={styles['banner']}></div>
+          <List<Article> itemList={itemList} />
+        </div>
+        <div className={styles['main-page-right']}>
+          <Recommend authorList={authorList} />
+        </div>
       </div>
-      <div className={styles['main-page-right']}>
-        <Recommend authorList={authorList} />
-      </div>
-    </div>
+    </Content>
   )
 }
 

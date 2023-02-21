@@ -1,4 +1,5 @@
 .article {
+  // background-color: #f9f9f9;
   &-detail {
     display: flex;
     justify-content: center;
@@ -9,8 +10,10 @@
   }
 
   &-content {
+    margin-right: 12px;
+    padding: 32px;
     flex: 2;
-
+    background-color: #fff;
     & > .title {
       font-size: 30px;
       font-weight: 700;
@@ -18,6 +21,7 @@
       margin-top: 32px;
       color: #404040;
       text-rendering: optimizelegibility;
+      margin-bottom: 0.5em;
     }
 
     & > .user-info {
@@ -97,7 +101,80 @@
     }
   }
 
-  &-sider {
+  &-aside {
     flex: 1;
+    & > section {
+      padding: 16px;
+    }
+    .author-article {
+      background-color: #fff;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      position: relative;
+      .author-info {
+        display: flex;
+        align-items: center;
+
+        .avatar {
+          display: block;
+          border-radius: 50%;
+          border: 1px solid #eee;
+          min-width: 50px;
+          min-height: 50px;
+          width: 50px;
+          height: 50px;
+        }
+
+        .info {
+          display: flex;
+          justify-content: space-around;
+          flex-direction: column;
+          flex-grow: 1;
+          overflow: hidden;
+          min-height: 45px;
+          margin-left: 8px;
+          .name {
+            align-items: center;
+            margin-bottom: 4px;
+          }
+          .asset {
+            color: #969696;
+            font-size: 12px;
+          }
+        }
+      }
+      .list-divider {
+        width: 100%;
+        height: 1px;
+        margin: 16px 0;
+        background-color: #eee;
+      }
+      .list-item {
+        margin-top: 16px;
+      }
+    }
+
+    .hot-article {
+      background-color: #fff;
+      .title {
+        font-size: 16px;
+        padding-left: 6px;
+        height: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        padding-left: 12px;
+        border-left: 4px solid #ec7259;
+        font-size: 18px;
+        font-weight: 500;
+        height: 20px;
+        line-height: 20px;
+      }
+
+      .list-item {
+        margin-bottom: 12px;
+      }
+    }
   }
 }

@@ -1,5 +1,4 @@
 import Nav from '@/components/Layout/Nav'
-import Content from '@/components/Content'
 import { PropsWithChildren } from 'react'
 
 type LayoutProps = PropsWithChildren
@@ -9,10 +8,8 @@ const Layout = ({ children }: LayoutProps) => {
     <div>
       <Nav></Nav>
       {/* <SearchBar></SearchBar> */}
-      <Content>
-        {/* Router */}
-        {children}
-      </Content>
+      {/* Router */}
+      {children}
     </div>
   )
 }
