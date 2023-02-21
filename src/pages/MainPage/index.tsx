@@ -1,6 +1,6 @@
 import Content from '@/components/Content'
 import List from '@/components/List'
-import Recommend from '@/components/Recommend'
+import RecommendAuthorList from '@/components/RecommendAuthorList'
 import useEffectOnce from '@/hooks/useEffectOnce'
 import { getArticleList } from '@/services/article'
 import { getUserList } from '@/services/user'
@@ -39,7 +39,7 @@ const MainPage = () => {
           <List<Article> itemList={itemList} />
         </div>
         <div className={styles['main-page-right']}>
-          <Recommend authorList={authorList} />
+          <RecommendAuthorList authorList={authorList} />
         </div>
       </div>
     </Content>
