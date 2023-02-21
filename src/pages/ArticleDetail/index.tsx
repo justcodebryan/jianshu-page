@@ -1,9 +1,10 @@
 import Anchor from '@/components/Anchor'
 import Content from '@/components/Content'
 import useEffectOnce from '@/hooks/useEffectOnce'
-import { getArticleDetail } from '@/services/article'
+import { getArticleDetail, getArticleList } from '@/services/article'
 import { Article } from '@/types/article'
-import { useState } from 'react'
+import { DEFAULT_PAGE, DEFAULT_PAGE_SIZE } from '@/utils/constants'
+import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 
 type ArticleDetailProps = {
@@ -12,6 +13,8 @@ type ArticleDetailProps = {
 
 const ArticleDetail = ({ id }: ArticleDetailProps) => {
   const [articleDetail, setArticleDetail] = useState<Article>()
+  const [userArticleList, setUserArticleList] = useState<Article[]>([])
+  const [hotArticleList, setHotArticleList] = useState<Article[]>([])
 
   useEffectOnce(() => {
     const fetchArticleDetail = async () => {
@@ -20,8 +23,27 @@ const ArticleDetail = ({ id }: ArticleDetailProps) => {
       setArticleDetail(res)
     }
 
+    const fetchHotArticleList = async () => {
+      const res = await getArticleList()
+      if (!res) return
+      setHotArticleList(res.items)
+    }
+
     fetchArticleDetail()
+    fetchHotArticleList()
   })
+
+  useEffect(() => {
+    const fetchUserArticleDetail = async (userId: string) => {
+      const res = await getArticleList(DEFAULT_PAGE, DEFAULT_PAGE_SIZE, userId)
+      if (!res) return
+      setUserArticleList(res.items)
+    }
+
+    if (!articleDetail) return
+
+    fetchUserArticleDetail(articleDetail.user)
+  }, [articleDetail])
 
   return (
     <Content style={{ backgroundColor: '#f9f9f9' }}>
@@ -54,13 +76,7 @@ const ArticleDetail = ({ id }: ArticleDetailProps) => {
               </div>
               <div className={styles['list-divider']}></div>
               <div className={styles['article-list']}>
-                {(
-                  [
-                    {
-                      title: 'ttt',
-                    },
-                  ] as Article[]
-                ).map((article) => (
+                {userArticleList.map((article) => (
                   <div className={styles['article-list-item']} key={article.title}>
                     <div className={styles['article-list-item-title']}>{article.title}</div>
                     <div className={styles['article-list-item-read-volume']}>阅读 {article.title}</div>
@@ -70,13 +86,7 @@ const ArticleDetail = ({ id }: ArticleDetailProps) => {
             </section>
             <section className={styles['hot-article']}>
               <h3 className={styles['title']}>热门故事</h3>
-              {(
-                [
-                  {
-                    title: 'ttt',
-                  },
-                ] as Article[]
-              ).map((article) => (
+              {hotArticleList.map((article) => (
                 <div key={article.title}>{article.title}</div>
               ))}
             </section>
