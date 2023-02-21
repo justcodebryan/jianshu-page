@@ -1,11 +1,11 @@
 import { User } from '@/types/user'
 import styles from './styles.module.scss'
 
-type RecommendPros = {
+type RecommendAuthorListProps = {
   authorList?: User[]
 }
 
-const Recommend = ({ authorList = [] }: RecommendPros) => {
+const RecommendAuthorList = ({ authorList = [] }: RecommendAuthorListProps) => {
   return (
     <div className={styles['recommend-authors']}>
       <div className={styles['title']}>
@@ -16,10 +16,10 @@ const Recommend = ({ authorList = [] }: RecommendPros) => {
         <ul className={styles['list']}>
           {authorList.map((author) => (
             <li key={author._id}>
-              <div className={styles['avatar']}>{author.avatar_source}</div>
-              <div className={styles['follow']}>关注</div>
+              <img className={styles['avatar']} src={author.avatar_source} alt="" />
+              <div className={styles['follow']}>关注 +</div>
               <div className={styles['name']}>{author.nickname}</div>
-              <p>{author.nickname}</p>
+              <p>总资产：{author.total_wordage}</p>
             </li>
           ))}
         </ul>
@@ -30,4 +30,4 @@ const Recommend = ({ authorList = [] }: RecommendPros) => {
   )
 }
 
-export default Recommend
+export default RecommendAuthorList
