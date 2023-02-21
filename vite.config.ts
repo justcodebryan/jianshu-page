@@ -3,7 +3,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import postCssPxToRem from 'postcss-pxtorem'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,18 +20,20 @@ export default defineConfig({
     alias: {
       // source: https://stackoverflow.com/a/66515600
       '@': path.resolve(__dirname, './src'),
+      // source: https://stackoverflow.com/questions/67744210/how-to-use-asset-urls-in-style-binding-with-vite
+      '~@': path.resolve(__dirname, '/src'),
     },
   },
-  css: {
-    postcss: {
-      plugins: [
-        postCssPxToRem({
-          rootValue: 14,
-          propList: ['*'],
-        }),
-      ],
-    },
-  },
+  // css: {
+  //   postcss: {
+  //     plugins: [
+  //       postCssPxToRem({
+  //         rootValue: 14,
+  //         propList: ['*'],
+  //       }),
+  //     ],
+  //   },
+  // },
   test: {
     globals: true,
     environment: 'jsdom',
